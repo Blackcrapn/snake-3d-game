@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        <div id="ui-overlay">
+            <div id="score-panel">
+                <div class="score-item">
+                    <span class="score-label">SCORE</span>
+                    <span class="score-value" id="score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">BEST</span>
+                    <span class="score-value" id="best-score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">LENGTH</span>
+                    <span class="score-value" id="length">3</span>
+                </div>
+            </div>
+            <div id="controls-hint">
+                <span class="key"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></span> or <span class="key"><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></span> to move
+                <br>
+                <span class="key"><kbd>SPACE</kbd></span> to pause
+            </div>
+        </div>
+        <div id="start-screen" class="screen active">
+            <div class="screen-content">
+                <h1 class="game-title">3D SNAKE</h1>
+                <p class="game-subtitle">Classic snake reimagined in 3D</p>
+                <button id="start-btn" class="btn btn-primary">Start Game</button>
+                <div class="difficulty-selector">
+                    <label>Difficulty: </label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="hard">Hard</option>
+                        <option value="insane">Insane</option>
+                    </select>
+                </div>
+                <div class="theme-selector">
+                    <label>Theme: </label>
+                    <select id="theme">
+                        <option value="neon">Neon Cyberpunk</option>
+                        <option value="nature">Nature Green</option>
+                        <option value="sunset">Sunset Vibes</option>
+                        <option value="monochrome">Monochrome</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="pause-screen" class="screen">
+            <div class="screen-content">
+                <h2>PAUSED</h2>
+                <button id="resume-btn" class="btn btn-secondary">Resume</button>
+                <button id="restart-btn" class="btn btn-danger">Restart</button>
+            </div>
+        </div>
+        <div id="game-over-screen" class="screen">
+            <div class="screen-content">
+                <h2 class="game-over-title">GAME OVER</h2>
+                <div class="final-stats">
+                    <div class="stat"><span class="stat-value" id="final-score">0</span><span class="stat-label">Score</span></div>
+                    <div class="stat"><span class="stat-value" id="final-length">3</span><span class="stat-label">Length</span></div>
+                    <div class="stat"><span class="stat-value" id="final-time">0s</span><span class="stat-label">Time</span></div>
+                </div>
+                <button id="play-again-btn" class="btn btn-primary">Play Again</button>
+                <button id="menu-btn" class="btn btn-secondary">Main Menu</button>
+            </div>
+        </div>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="game.js"></script>
+</body>
+</html>
